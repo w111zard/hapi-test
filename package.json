@@ -1,0 +1,25 @@
+{
+  "name": "hapi_tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.2",
+    "@types/hapi": "^18.0.7",
+    "@types/hapi__hapi": "^20.0.13",
+    "pg": "^8.8.0",
+    "reflect-metadata": "^0.1.13",
+    "tsc-watch": "^5.0.3",
+    "typeorm": "^0.3.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0"
+  }
+}
