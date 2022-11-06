@@ -3,17 +3,18 @@ import {User} from "./entities/user.entity";
 import {Task} from "./entities/task.entity";
 
 interface IDatabaseWrapper {
-    connect(): Promise<void>,
+    connect(): Promise<DataSource>,
     getConnection(),
     disconnect(): Promise<void>,
 }
 
 class DatabaseWrapper implements IDatabaseWrapper {
-    private connection: DataSource;
+    private readonly connection: DataSource;
 
-    async connect(): Promise<void> {
+    constructor() {
         try {
-            this.connection = await new DataSource({
+            console.log("database constructor()")
+            this.connection = new DataSource({
                 type: 'postgres',
                 host: 'localhost',
                 port: Number(5432),
@@ -24,9 +25,16 @@ class DatabaseWrapper implements IDatabaseWrapper {
                 entities: [
                     User, Task
                 ]
-            }).initialize();
+            });
+        } catch (error) {
+            console.log(error);
+            throw new Error("Can't connect to database!");
+        }
+    }
 
-            console.log("Successfully connected to database");
+    async connect(): Promise<DataSource> {
+        try {
+            return await this.connection.initialize();
         } catch (error) {
             console.log(error);
             throw new Error("Can't connect to database!");
@@ -34,6 +42,7 @@ class DatabaseWrapper implements IDatabaseWrapper {
     }
 
     getConnection() {
+        console.log("database getConnection()")
         if (!this.connection) {
             throw new Error("Can't get connection, database connection isn't initialized!");
         }

@@ -1,7 +1,6 @@
 import * as Hapi from "@hapi/hapi"
-import {UserController} from "../controllers/user";
+import {userController} from "../controllers/user";
 
-const userController = new UserController();
 
 export const userRoutes: Hapi.ServerRoute[] = [
     {

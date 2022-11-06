@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hapi/basic": "^7.0.0",
     "@hapi/hapi": "^20.2.2",
     "@types/hapi": "^18.0.7",
     "@types/hapi__hapi": "^20.0.13",
